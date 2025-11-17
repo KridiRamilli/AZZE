@@ -24,3 +24,61 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Link Animatin */
+
+.nav-link {
+  position: relative;
+  padding: 6px 14px;
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 3px;
+  background-color: #7d49ea;
+  transition: all 0.3s ease;
+}
+
+/* .nav-link::before {
+  top: 0;
+  left: 0;
+} */
+
+.nav-link::after {
+  bottom: 0;
+  left: 0;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link span::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 0%;
+  background-color: #7d49ea;
+  transition: all 0.3s ease;
+}
+
+.nav-link span::after {
+  left: 0;
+  top: 0;
+}
+
+.nav-link:hover span::after {
+  height: 100%;
+}
+
+.animate-radius {
+  border-radius: 20px;
+  transition: border-radius 0.2s ease-in-out;
+}
+
+.animate-radius:hover {
+  border-radius: 0; /* same as rounded-lg */
+}
