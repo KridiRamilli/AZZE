@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Script from "next/script";
 import { FaGithub } from "react-icons/fa";
 import { BsTwitterX } from "react-icons/bs";
 import { FaDiscord } from "react-icons/fa";
@@ -62,6 +63,13 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      <script
+        id='messenger-widget-b'
+        src='https://cdn.botpenguin.com/website-bot.js'
+        defer
+      >
+        691dbec7957def04ae982074,691dbe88bcbf686f9ca78959
+      </script>
     </div>
   );
 };
