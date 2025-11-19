@@ -82,3 +82,8 @@ body {
 .animate-radius:hover {
   border-radius: 0; /* same as rounded-lg */
 }
+
+.socials svg:hover {
+  color: #e12afb;
+  cursor: pointer;
+}
