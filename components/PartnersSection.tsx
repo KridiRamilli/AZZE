@@ -19,7 +19,7 @@ const PartnersSection = () => {
     cssEase: "linear",
   };
   return (
-    <div className='slider-container max-w-full px-80 mt-20'>
+    <div className='slider-container max-w-full lg:px-80 mt-20 max-md:px-2'>
       <h1 className='text-center mb-10 text-gray-400 text-2xl'>Our Friends!</h1>
       <Slider {...settings}>
         <div>
