@@ -3,13 +3,17 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { IoIosMenu as Menu, IoMdClose as X } from "react-icons/io";
+import { Button } from "@/components/ui/button";
+import { motion } from "motion/react";
+import { FaDiscord, FaGithub, FaInstagram } from "react-icons/fa";
+import { BsTwitterX } from "react-icons/bs";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className='fixed top-0 left-0 w-full bg-white shadow-sm z-50'>
-      <div className='max-w-7xl mx-auto px-6 flex items-center justify-between h-20'>
+    <nav className='fixed top-0 left-0 w-full z-50 lg:bg-white lg:shadow-sm'>
+      <div className='bg-white max-lg:shadow-sm max-w-7xl mx-auto px-6 flex items-center justify-between h-20'>
         {/* LOGO */}
         <div className='flex items-center gap-2'>
           <Image
@@ -20,6 +24,12 @@ export default function Navbar() {
             className='object-contain'
           />
         </div>
+
+        <Link href='/app' className='md:hidden'>
+          <Button variant='defaultNoBorder' size='default'>
+            Launch App
+          </Button>
+        </Link>
 
         {/* NAV LINKS (Desktop) */}
         <div className='hidden md:flex items-center space-x-8'>
@@ -64,8 +74,17 @@ export default function Navbar() {
 
       {/* MOBILE MENU PANEL */}
       {menuOpen && (
-        <div className='md:hidden bg-white border-t border-gray-200 shadow-lg'>
-          <div className='flex flex-col px-6 py-4 space-y-4'>
+        <motion.div
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{
+            duration: 0.2,
+            scale: { type: "spring", visualDuration: 0.2, bounce: 0 },
+          }}
+          style={{ originY: 0, originX: 1 }}
+          className='md:hidden flex flex-col items-end '
+        >
+          <div className='flex flex-col px-6 py-4 space-y-4  w-1/2 bg-white border-t border-gray-200 shadow-lg'>
             <Link
               href='/'
               className='text-gray-800 hover:text-fuchsia-500 transition'
@@ -87,16 +106,22 @@ export default function Navbar() {
             >
               Docs
             </Link>
-
-            <Link
-              href='/app'
-              className='px-5 py-2 text-center bg-fuchsia-500 text-white animate-radius'
-              onClick={() => setMenuOpen(false)}
-            >
-              Launch App
-            </Link>
+            <div className='flex flex-row border-t justify-around h-10 items-center'>
+              <Link href={""}>
+                <FaGithub />
+              </Link>
+              <Link href={""}>
+                <BsTwitterX />
+              </Link>
+              <Link href={""}>
+                <FaDiscord />
+              </Link>
+              <Link href={""}>
+                <FaInstagram />
+              </Link>
+            </div>
           </div>
-        </div>
+        </motion.div>
       )}
     </nav>
   );
